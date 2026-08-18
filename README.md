@@ -21,13 +21,15 @@ uv run tplink-vx800v-exporter
 
 ### Using Docker
 
+Images are published to GHCR on every merge to `main`, tagged as `sha-<full-git-sha>`. Find the tag for a commit on the [package page](https://github.com/lucavb/tplink-vx800v-exporter/pkgs/container/tplink-vx800v-exporter) or in the CI workflow run for that commit.
+
 ```bash
 docker run -d \
   --name tplink-vx800v-exporter \
   -p 9105:9105 \
   -e TPLINK_ROUTER_HOST=https://192.168.1.1 \
   -e TPLINK_ROUTER_PASSWORD='your-router-password' \
-  ghcr.io/lucavb/tplink-vx800v-exporter:latest
+  ghcr.io/lucavb/tplink-vx800v-exporter:sha-<commit>
 ```
 
 ### Docker Compose
@@ -35,7 +37,7 @@ docker run -d \
 ```yaml
 services:
   tplink-vx800v-exporter:
-    image: ghcr.io/lucavb/tplink-vx800v-exporter:latest
+    image: ghcr.io/lucavb/tplink-vx800v-exporter:sha-<commit>
     ports:
       - "9105:9105"
     environment:

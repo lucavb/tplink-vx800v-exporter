@@ -61,11 +61,3 @@ select = ["E", "F", "I", "UP", "B", "SIM"]
 [tool.pyright]
 pythonVersion = "3.11"
 typeCheckingMode = "basic"
-
-[tool.semantic_release]
-version_source = "tag"
-tag_format = "v{version}"
-commit = false
-
-[tool.semantic_release.remote]
-type = "github"
